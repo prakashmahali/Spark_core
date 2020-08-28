@@ -1,0 +1,37 @@
+Inner Join :
+df = df1.join(df2, on=['key'], how='inner')
+df.show()
+
+Outer Join : 
+df = df1.join(df2, on=['key'], how='outer')
+df.show()
+Left Join : 
+
+df = df1.join(df2, on=['key'], how='left')
+df.show()
+
+Right Join :
+
+df = df1.join(df2, on=['key'], how='right')
+df.show()
+Left Semi Join : 
+df  = df1.join(df2, on=['key'], how='left_semi')
+df.show()
+
+
+df  = df1.join(df2, on=['key'], how='left_anti')
+df.show()
+
+print('Inner join with condition df1.key == df2.key')
+df  = df1.join(df2, df1.key == df2.key, how='inner')
+df.show()
+print('Inner join with condition df1.key > df2.key')
+df  = df1.join(df2, df1.key > df2.key, how='inner')
+df.show()
+print('Inner join with multiple conditions [df1.val11 < df2.val21, df1.val12 < df2.val22]')
+df  = df1.join(df2, [df1.val11 < df2.val21, df1.val12 < df2.val22], how='inner')
+df.show()
+print('Inner join with multiple or conditions (df1.val11 > df2.val21) | (df1.val12 < df2.val22)')
+df  = df1.join(df2, [(df1.val11 < df2.val21) | (df1.val12 > df2.val22)], how='inner')
+df.show()
+
